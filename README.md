@@ -1,3 +1,3 @@
 # Use the following information for login
-username: emon,
-password: 123456
+Username: emon,
+Password: 123456
