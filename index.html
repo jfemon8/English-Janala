@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>English Janala</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body class="font-en">
+    <section class="container mx-auto">
+      <div id="navbar" class="hidden">
+        <nav
+          class="px-20 py-3 bg-gradient-to-r from-white via-[#C6BDBD] to-white flex justify-between items-center border-b border-b-gray-400 fixed top-0 left-0 right-0 z-10"
+        >
+          <div class="flex justify-center items-center gap-1 text-xl">
+            <h1 class="font-semibold">English</h1>
+            <img src="assets/logo.png" alt="logo" />
+            <h1>জানালা</h1>
+          </div>
+          <div class="flex justify-center items-center gap-4">
+            <button
+              onclick="scrollToSection('faq')"
+              class="btn btn-outline btn-primary"
+            >
+              <img src="assets/fa-circle-question.png" alt="Question" />FAQ
+            </button>
+            <button
+              onclick="scrollToSection('vocabulary')"
+              class="btn btn-outline btn-primary"
+            >
+              <img src="assets/fa-book-open.png" alt="Book" />Learn
+            </button>
+            <button id="logout-btn" class="btn btn-outline btn-primary">
+              <img
+                src="assets/fa-arrow-right-from-bracket.png"
+                alt="Arrow"
+              />Logout
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <main class="m-20">
+        <div id="banner">
+          <section class="flex justify-between items-center">
+            <div>
+              <h1 class="text-5xl font-bold">
+                <span class="text-[#00BCFF]">English</span> is Easy!!
+              </h1>
+              <p class="font-bn mt-6 text-2xl font-medium opacity-80">
+                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
+                অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে
+                নিয়ে যাবে অন্য একটি Level এ
+              </p>
+              <div class="mt-7 flex flex-col gap-5 items-start">
+                <input
+                  id="username"
+                  type="text"
+                  placeholder="Enter Your Name"
+                  class="input"
+                />
+                <input
+                  id="password"
+                  type="text"
+                  placeholder="Enter Password (e.g. 123456)"
+                  class="input"
+                />
+                <button id="login-btn" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+            <img src="assets/hero-student.png" alt="Student" />
+          </section>
+        </div>
+
+        <section id="vocabulary" class="text-center mt-20 hidden">
+          <h1 class="text-4xl font-bold">
+            <span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
+          </h1>
+          <div
+            id="lessons"
+            class="flex flex-wrap justify-center items-center gap-5 mt-10"
+          ></div>
+
+          <span id="loader" class="loading loading-spinner loading-xl mt-10 hidden"></span>
+
+          <div
+            id="word_container"
+            class="bg-[#F8F8F8] rounded-3xl p-8 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"
+          >
+            <div class="col-span-3">
+              <p class="text-sm text-[#79716B] font-bn">
+                আপনি এখনো কোন Lesson Select করেন নি
+              </p>
+              <h2 class="mt-3 text-4xl font-medium font-bn">
+                একটি Lesson Select করুন।
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <div
+              id="modal_container"
+              class="p-6 border border-[#EDF7FF] rounded-xl"
+            ></div>
+            <div class="modal-action">
+              <form method="dialog">
+                <button class="btn btn-primary">Complete Learning</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+
+        <section id="faq" class="mt-20 hidden">
+          <h1 class="text-4xl font-bold text-center">
+            <span class="text-[#00BCFF]">Frequently</span> Asked Questions
+          </h1>
+          <div class="mt-10">
+            <div class="collapse collapse-plus bg-[#F8F8F8]">
+              <input type="radio" name="my-accordion-3" checked="checked" />
+              <div class="collapse-title font-semibold">
+                What is the difference between var, let, and const?
+              </div>
+              <div class="collapse-content text-sm">
+                var is function-scoped, which means its value is accessible
+                throughout the function where it is declared. It can be
+                re-declared and updated. let is block-scoped, meaning it is only
+                accessible within the block ({}) where it's declared. It can be
+                updated but cannot be re-declared in the same scope. const is
+                also block-scoped like let but is used to declare constants.
+                Once assigned, its value cannot be changed or re-declared in the
+                same scope.
+              </div>
+            </div>
+            <div class="collapse collapse-plus bg-[#F8F8F8] mt-5">
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title font-semibold">
+                What is the difference between map(), forEach(), and filter()?
+              </div>
+              <div class="collapse-content text-sm">
+                map() creates a new array by transforming each element of the
+                original array based on a provided function. It returns a new
+                array with the same length. forEach() executes a function for
+                each element in the array but does not return anything. It's
+                mainly used for performing side effects like logging, updating
+                UI, or modifying external variables. filter() creates a new
+                array by including only those elements that pass a specific
+                condition. It returns a new array with elements that meet the
+                condition.
+              </div>
+            </div>
+            <div class="collapse collapse-plus bg-[#F8F8F8] mt-5">
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title font-semibold">
+                Explain arrow functions and how they are different from regular
+                functions.
+              </div>
+              <div class="collapse-content text-sm">
+                Arrow functions provide a shorter syntax for writing functions.
+                The biggest difference is how they handle the this keyword. In
+                arrow functions, this refers to its surrounding scope, meaning
+                it inherits this from its parent function or context. Regular
+                functions have their own this depending on how they are called.
+              </div>
+            </div>
+            <div class="collapse collapse-plus bg-[#F8F8F8] mt-5">
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title font-semibold">
+                How JavaScript Promises work?
+              </div>
+              <div class="collapse-content text-sm">
+                Promises in JavaScript handle asynchronous operations, like
+                fetching data from an API or reading files. A promise has three
+                states: Pending, Fulfilled and Rejected. Promises provide
+                .then() for handling success and .catch() for handling errors.
+              </div>
+            </div>
+            <div class="collapse collapse-plus bg-[#F8F8F8] mt-5">
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title font-semibold">
+                How closures work in JavaScript?
+              </div>
+              <div class="collapse-content text-sm">
+                A closure happens when a function remembers and continues to
+                access variables from its outer function even after that parent
+                function has finished executing. In simple terms, closures allow
+                inner functions to access variables from an outer function's
+                scope, preserving data in memory even after the outer function
+                is done running.
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer
+        class="mt-20 border-t border-t-[#FFEBEB] p-20 flex justify-between items-center"
+      >
+        <div>
+          <div class="flex items-center gap-1">
+            <h3 class="text-xl font-semibold">English</h3>
+            <img src="assets/logo.png" alt="Logo" />
+            <h3 class="text-xl">জানালা</h3>
+          </div>
+          <p class="mt-5 text-xl font-medium font-bn">ইংরেজি শিখুন সহজে</p>
+          <p class="mt-2">Providing ED-Tech Applications since 2025</p>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-[#18181B]">FOLLOW US</p>
+          <div class="flex items-center gap-4 mt-4">
+            <a href="https://facebook.com/" target="_blank"
+              ><img src="assets/fb-thumb.png" alt="FB"
+            /></a>
+            <a href="https://youtube.com/" target="_blank"
+              ><img src="assets/youtube-thumb.png" alt="YT"
+            /></a>
+            <a href="https://instagram.com/" target="_blank"
+              ><img src="assets/instagram-thumb.png" alt="Insta"
+            /></a>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+      integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </body>
+</html>
